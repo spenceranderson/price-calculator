@@ -1,0 +1,29 @@
+import sys
+
+
+print('Price Calculator \nType all entries in lower case')
+price = 0
+account_type = input('Enter account type: ')
+if account_type not in['standard', 'registered']:
+    sys.exit('invalid input')
+distributor = input('Enter distributor name: ')
+if distributor not in['bob', 'sue']:
+    sys.exit('invalid input')
+part_number = input('Enter part number: ')
+if part_number == '1':
+    price = 100
+elif part_number == '2':
+    price = 50
+elif part_number == '3':
+    price = 10
+else:
+    sys.exit('invalid entry')
+if distributor == 'bob':
+    price *= .7
+if distributor == 'sue':
+    price *= .8
+if distributor == 'bob' and account_type and part_number == '3':
+    price = 5
+if account_type == 'registered':
+    price *= .9
+print('price: $', price)
